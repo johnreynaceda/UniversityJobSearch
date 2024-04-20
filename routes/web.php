@@ -9,6 +9,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/status', function () {
+    return view('pages.status');
+})->name('status');
+
 Route::get('/dashboard', function () {
     switch (auth()->user()->user_type) {
         case 'employer':
