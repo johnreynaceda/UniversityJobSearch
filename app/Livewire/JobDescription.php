@@ -3,6 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Application;
+use App\Models\EmployerInformation;
+use App\Models\Notification;
 use App\Models\OjtJob;
 use Livewire\Component;
 use WireUi\Traits\Actions;
@@ -19,12 +21,19 @@ class JobDescription extends Component
     public function applyNow(){
         sleep(2);
         $data = auth()->user()->userInformation->resume_path;
+        $employer_id = OjtJob::where('id', $this->job_id)->first()->employerInformation;
         if ($data) {
             Application::create([
+                'ojt_job_id' => $this->job_id,
                 'user_id' => auth()->user()->id,
-                'employer_information_id' => $this->job_id,
+                'employer_information_id' => $employer_id->id,
             ]);
-            sweetalert()->addSuccess('Application submitted.');
+            // sweetalert()->addSuccess('Application submitted.');
+            Notification::create([
+                'user_id' => auth()->user()->id,
+                'receiver_id' => $employer_id->user->id,
+                'description' => auth()->user()->name. ' sent a application. click here to open.',
+            ]);
             return redirect()->route('welcome');
 
         }else{
