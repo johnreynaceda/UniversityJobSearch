@@ -14,7 +14,7 @@ class UserStatus
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-          if (auth()->user()->status == 'pending') {
+          if (auth()->user()->status === 'pending') {
             return redirect()->route('status');
           }else{
             return $next($request);
@@ -22,7 +22,7 @@ class UserStatus
         }else{
             return redirect()->route('login');
         }
-        
+
     }
 
 }

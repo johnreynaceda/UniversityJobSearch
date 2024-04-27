@@ -158,7 +158,7 @@
         </div>
         <div class="flex flex-col flex-1 w-0 overflow-hidden">
             <main class="relative flex-1 overflow-y-auto focus:outline-none">
-                <div class="bg-white flex justify-between items-center p-5 border-b sticky top-0">
+                <div class="bg-white flex justify-between items-center p-5 border-b z-10 sticky top-0">
                     <div>
                         <h1 class="text-2xl ml-5 font-bold uppercase text-main">@yield('title')</h1>
                     </div>

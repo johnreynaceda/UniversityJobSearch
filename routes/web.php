@@ -10,19 +10,23 @@ Route::get('/', function () {
 });
 
 Route::get('/status', function () {
-    return view('pages.status');
+    if (auth()->user()->status === 'pending') {
+        return view('pages.status');
+    }else{
+        return redirect()->route('dashboard');
+    }
 })->name('status');
 
 Route::get('/dashboard', function () {
     switch (auth()->user()->user_type) {
         case 'employer':
-            dd('employer');
+            return redirect()->route('employer.dashboard');
             break;
         case 'student':
            return redirect()->route('user.profile');
             break;
         case 'alumni':
-            dd('alumni');
+            return redirect()->route('user.profile');
             break;
 
         default:
@@ -58,6 +62,18 @@ Route::middleware(UserStatus::class)->group(
         Route::get('/user-profile', function () {
             return view('pages.profile');
         })->name('user.profile');
+
+        Route::get('/job/{id}', function () {
+            return view('pages.job-description');
+        })->name('user.job-description');
+    }
+);
+
+Route::prefix('employer')->middleware(UserStatus::class)->group(
+    function(){
+       Route::get('/profile', function(){
+        return view('employer.index');
+       })->name('employer.dashboard');
     }
 );
 

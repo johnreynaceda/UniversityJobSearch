@@ -73,7 +73,7 @@
                                     fill="currentColor"></path>
                             </svg>
                             <div class="space-y-5">
-                                <h3 class="text-4xl font-medium leading-6 text-gray-700">
+                                <h3 class="text-4xl font-medium  leading-6 text-gray-700">
                                     I'm an Employer
                                 </h3>
 
@@ -99,6 +99,7 @@
                 <h1 class="font-bold text-xl">Create a free Jobseeker Account</h1>
                 <span>(Student)</span>
                 <div class="mt-10 grid grid-cols-3 gap-5">
+                    <x-input label="Student Number" placeholder="" rounded class="h-12" wire:model="snumber" />
                     <x-input label="Name" placeholder="" rounded class="h-12" wire:model="name" />
                     <x-input label="Course" placeholder="" rounded class="h-12" wire:model="course" />
                     <x-input label="Grade level & Year" placeholder="" rounded class="h-12" wire:model="grade_year" />

@@ -17,7 +17,7 @@ class RegisterUser extends Component
 
     public $course, $grade_year, $files;
 
-    public $name, $email, $password, $confirm_password, $logo, $company_name,$address,$contact,$license;
+    public $name, $email, $password, $confirm_password, $logo, $company_name,$address,$contact,$license, $snumber;
     public $picture, $age, $birthday, $status,$gsuite, $year_graduated, $date_of_registraion;
     public function render()
     {
@@ -26,6 +26,7 @@ class RegisterUser extends Component
 
     public function createStudent(){
         $this->validate([
+            'snumber' => 'required',
             'name' =>'required',
             'email' =>'required|unique:users,email',
             'course' => 'required',
@@ -48,6 +49,7 @@ class RegisterUser extends Component
 
         UserInformation::create([
             'user_id' => $user->id,
+            'number' => $this->snumber,
             'type_of_employee' => 'student',
             'name' => $this->name,
             'course' => $this->course,
@@ -111,12 +113,12 @@ class RegisterUser extends Component
         ]);
 
         EmployerInformation::create([
-            'user' => $user->id,
+            'user_id' => $user->id,
             'company_name' => $this->company_name,
             'address' => $this->address,
             'contact' => $this->contact,
             'license' => $this->license,
-            'logo' => $this->logo->strore('Logo', 'public'),
+            'logo_path' => $this->logo->store('Logo', 'public'),
         ]);
 
         auth()->loginUsingId($user->id);

@@ -49,7 +49,7 @@ class UserProfile extends Component
                 'resume_path' => $this->file->store('Resume', 'public'),
             ]);
         }else{
-            $data->update([
+            $data->first()->update([
                 'user_id' => auth()->user()->id,
                 'type_of_employee' => auth()->user()->user_type,
                 'number' => $this->number,
