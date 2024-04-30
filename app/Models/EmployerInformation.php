@@ -17,4 +17,8 @@ class EmployerInformation extends Model
     public function ojtjobs(){
         return $this->hasMany(OjtJob::class);
     }
+
+    public function applications(){
+        return $this->hasMany(Application::class);
+    }
 }

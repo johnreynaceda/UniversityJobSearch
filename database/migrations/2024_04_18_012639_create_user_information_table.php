@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('year')->nullable();
             $table->string('proof_path')->nullable();
             $table->string('gsuite')->nullable();
-            $table->date('year_of_graduated')->nullable();
+            $table->string('year_of_graduated')->nullable();
             $table->date('date_of_registration')->nullable();
             $table->string('resume_path')->nullable();
             $table->timestamps();

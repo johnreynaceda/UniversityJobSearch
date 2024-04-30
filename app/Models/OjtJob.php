@@ -13,4 +13,8 @@ class OjtJob extends Model
     public function employerInformation(){
         return $this->belongsTo(EmployerInformation::class);
     }
+
+    public function applications(){
+        return $this->hasMany(Application::class);
+    }
 }

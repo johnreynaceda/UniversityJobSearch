@@ -10,8 +10,8 @@ class UserProfile extends Component
 {
     use WithFileUploads;
     public $number, $name, $age, $birthdate, $status, $address, $contact, $gsuite, $year_of_graduated, $file, $resume;
-    public function render()
-    {
+
+    public function mount(){
         $data = UserInformation::where('user_id', auth()->user()->id)->get();
         if ($data->count() > 0) {
            $this->name = $data->first()->name;
@@ -23,9 +23,14 @@ class UserProfile extends Component
            $this->contact = $data->first()->contact;
            $this->gsuite = $data->first()->gsuite;
            $this->resume = $data->first()->resume_path;
+           $this->year_of_graduated = $data->first()->year_of_graduated;
         }else{
 
         }
+    }
+    public function render()
+    {
+
 
         return view('livewire.user-profile');
     }

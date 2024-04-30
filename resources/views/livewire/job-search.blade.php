@@ -71,7 +71,7 @@
                                     posted on
                                     {{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</h1>
                                 <p>
-                                <p class="mt-2">{{ $item->description }} <a target="_blank" class="text-main"
+                                <p class="mt-2">{{ $item->description }} <a class="text-main"
                                         href="{{ route('user.job-description', ['id' => $item->id]) }}">See more...</a>
                                 </p>
                                 </p>

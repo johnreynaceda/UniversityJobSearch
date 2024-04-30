@@ -2,15 +2,49 @@
     {{ $this->table }}
 
     <x-modal wire:model.defer="student_modal">
-        <x-card title="Consent Terms">
-            <div>
-                sdsdsd
-            </div>
+        <x-card title="View Data">
+            <div class="mt-10 grid grid-cols-3 gap-5">
+                <x-input label="Student Number" placeholder="" rounded class="h-12" wire:model="snumber" />
+                <x-input label="Name" placeholder="" rounded class="h-12" wire:model="name" />
+                <x-input label="Course" placeholder="" rounded class="h-12" wire:model="course" />
+                <x-input label="Grade level & Year" placeholder="" rounded class="h-12" wire:model="grade_year" />
+                <x-input label="GSUITE" placeholder="" rounded class="h-12" wire:model="gsuite" />
+                <x-input label="Address" placeholder="" rounded class="h-12" wire:model="address" />
+                <x-input label="Contact" placeholder="" rounded class="h-12" wire:model="contact" />
+                <x-input label="Email" placeholder="" type="email" class="h-12" wire:model="email" />
 
+
+            </div>
+            <div class="mt-3">
+                <x-button label="View Uploaded File" dark href="{{ Storage::url($files) }}" target="_blank" />
+            </div>
             <x-slot name="footer">
                 <div class="flex justify-end gap-x-4">
                     <x-button flat label="Cancel" x-on:click="close" />
-                    <x-button primary label="I Agree" />
+                </div>
+            </x-slot>
+        </x-card>
+    </x-modal>
+    <x-modal wire:model.defer="alumni_modal">
+        <x-card title="View Data">
+            <div class="mt-10 grid grid-cols-3 gap-5">
+                {{-- <x-input label="Student Number" placeholder="" rounded class="h-12" wire:model="snumber" /> --}}
+                <x-input label="Name" placeholder="" rounded class="h-12" wire:model="name" />
+                <x-input label="Course" placeholder="" rounded class="h-12" wire:model="course" />
+                <x-input label="Year Graduated" placeholder="" rounded class="h-12" wire:model="year_graduated" />
+                <x-input label="GSUITE" placeholder="" rounded class="h-12" wire:model="gsuite" />
+                <x-input label="Address" placeholder="" rounded class="h-12" wire:model="address" />
+                <x-input label="Contact" placeholder="" rounded class="h-12" wire:model="contact" />
+                <x-input label="Email" placeholder="" type="email" class="h-12" wire:model="email" />
+
+
+            </div>
+            <div class="mt-3">
+                <x-button label="View Uploaded File" dark href="{{ Storage::url($files) }}" target="_blank" />
+            </div>
+            <x-slot name="footer">
+                <div class="flex justify-end gap-x-4">
+                    <x-button flat label="Cancel" x-on:click="close" />
                 </div>
             </x-slot>
         </x-card>

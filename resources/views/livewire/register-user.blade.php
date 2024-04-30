@@ -106,7 +106,7 @@
                     <x-input label="GSUITE" placeholder="" rounded class="h-12" wire:model="gsuite" />
                     <x-input label="Address" placeholder="" rounded class="h-12" wire:model="address" />
                     <x-input label="Contact" placeholder="" rounded class="h-12" wire:model="contact" />
-                    <x-input label="Email" placeholder="" type="Email" class="h-12" wire:model="email" />
+                    <x-input label="Email" placeholder="" type="email" class="h-12" wire:model="email" />
                     <x-inputs.password label="Password" placeholder="" class="h-12" wire:model="password" />
                     <x-inputs.password label="Confirm Password" placeholder="" class="h-12"
                         wire:model="confirm_password" />
@@ -125,17 +125,26 @@
         </x-card>
     </x-modal>
 
-    <x-modal wire:model.defer="alumni_modal" align="center" max-width="xl">
+    <x-modal wire:model.defer="alumni_modal" align="center" max-width="3xl">
         <x-card title="">
             <div class="px-4">
                 <h1 class="font-bold text-xl">Create a free Jobseeker Account</h1>
                 <span>(Alumni)</span>
-                <div class="mt-10 grid grid-cols-1 gap-5">
+                <div class="mt-10 grid grid-cols-3 gap-5">
                     <x-input label="Name" placeholder="" rounded class="h-12" wire:model="name" />
-                    <x-input label="Email" placeholder="" type="Email" class="h-12" wire:model="email" />
+                    <x-input label="Course" placeholder="" rounded class="h-12" wire:model="course" />
+                    <x-input hint="ex. 2023-2024" label="Year Graduated" placeholder="" rounded class="h-12"
+                        wire:model="year_graduated" />
+                    <x-input label="GSUITE" placeholder="" rounded class="h-12" wire:model="gsuite" />
+                    <x-input label="Address" placeholder="" rounded class="h-12" wire:model="address" />
+                    <x-input label="Contact" placeholder="" rounded class="h-12" wire:model="contact" />
+                    <x-input label="Email" placeholder="" type="email" class="h-12" wire:model="email" />
                     <x-inputs.password label="Password" placeholder="" class="h-12" wire:model="password" />
                     <x-inputs.password label="Confirm Password" placeholder="" class="h-12"
                         wire:model="confirm_password" />
+                    <x-input type="file" label="File Upload" placeholder=""
+                        hint="Please upload a student ID or any proof that you are a student at BSU." rounded
+                        class="h-12" wire:model="files" />
                 </div>
             </div>
             <x-slot name="footer">
@@ -158,7 +167,7 @@
                         wire:model="logo" />
                     <x-input label="Employer Name" placeholder="" rounded class="h-12" wire:model="name" />
                     <x-input label="Company Name" placeholder="" rounded class="h-12" wire:model="company_name" />
-                    <x-input label="Email" placeholder="" type="Email" class="h-12" wire:model="email" />
+                    <x-input label="Email" placeholder="" type="email" class="h-12" wire:model="email" />
                     <x-input label="Address" placeholder="" class="h-12" wire:model="address" />
                     <x-input label="Contact" placeholder="" class="h-12" wire:model="contact" />
                     <x-input label="License(Optional)" placeholder="" class="h-12" wire:model="license" />

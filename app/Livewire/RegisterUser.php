@@ -3,8 +3,10 @@
 namespace App\Livewire;
 
 use App\Models\EmployerInformation;
+use App\Models\Notification;
 use App\Models\User;
 use App\Models\UserInformation;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -60,6 +62,13 @@ class RegisterUser extends Component
             'proof_path' => $this->files->store('proof_path', 'public'),
         ]);
 
+        Notification::create([
+            'user_id' => $user->id,
+            'receiver_id' => 1,
+            'description' => $user->name. ' has sent you a account request. Clich here to view',
+            'application_id' => 0
+        ]);
+
         auth()->loginUsingId($user->id);
 
         sleep(2);
@@ -72,6 +81,12 @@ class RegisterUser extends Component
         $this->validate([
             'name' =>'required',
             'email' =>'required|unique:users,email',
+            'course' => 'required',
+            'year_graduated' => 'required',
+            'gsuite' => 'required',
+            'address' => 'required',
+            'contact' => 'required',
+            'files' => 'required',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
 
@@ -82,6 +97,25 @@ class RegisterUser extends Component
             'email' => $this->email,
             'password' => bcrypt($this->password),
             'user_type' => 'alumni'
+        ]);
+
+        UserInformation::create([
+            'user_id' => $user->id,
+            'name' => $this->name,
+            'type_of_employee' => 'alumni',
+            'course' => $this->course,
+            'year_of_graduated' => $this->year_graduated,
+            'gsuite' => $this->gsuite,
+            'address' => $this->address,
+            'contact' => $this->contact,
+            'proof_path' => $this->files->store('proof_path', 'public'),
+        ]);
+
+        Notification::create([
+            'user_id' => $user->id,
+            'receiver_id' => 1,
+            'description' => $user->name. ' has sent you a account request. Clich here to view',
+            'application_id' => 0
         ]);
 
         auth()->loginUsingId($user->id);
@@ -119,6 +153,13 @@ class RegisterUser extends Component
             'contact' => $this->contact,
             'license' => $this->license,
             'logo_path' => $this->logo->store('Logo', 'public'),
+        ]);
+
+        Notification::create([
+            'user_id' => $user->id,
+            'receiver_id' => 1,
+            'description' => $user->name. ' has sent you a account request. Clich here to view',
+            'application_id' => 0
         ]);
 
         auth()->loginUsingId($user->id);

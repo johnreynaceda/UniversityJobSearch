@@ -41,20 +41,7 @@ class UserRequestList extends Component  implements HasForms, HasTable
     public function table(Table $table): Table
     {
         return $table
-            ->query(User::query()->where('user_type', '!=', 'admin')->where('status', 'pending'))->headerActions([
-                Action::make('new_environment')->label('New Environment')->color('danger')->action(
-                    function($record, $data){
-                        WorkEnvironment::create([
-                            'name' => $data['name'],
-
-                        ]);
-                    }
-                )->form([
-                    TextInput::make('name')->required(),
-
-                ])->modalWidth('xl')
-            ])
-            ->columns([
+            ->query(User::query()->where('user_type', '!=', 'admin')->where('status', 'pending'))->columns([
                 TextColumn::make('name')->label('NAME')->searchable(),
                 TextColumn::make('email')->label('EMAIL')->searchable(),
                 TextColumn::make('user_type')->label('USER TYPE')->searchable(),
@@ -73,10 +60,30 @@ class UserRequestList extends Component  implements HasForms, HasTable
                     function($record){
                         switch ($record->user_type) {
                             case 'student':
+
+                                $this->snumber = $record->userInformation->number;
+                                $this->name = $record->userInformation->name;
+                                $this->course = $record->userInformation->course;
+                                $this->grade_year = $record->userInformation->year;
+                                $this->gsuite = $record->userInformation->gsuite;
+                                $this->address = $record->userInformation->address;
+                                $this->contact = $record->userInformation->contact;
+                                $this->email = $record->email;
+                                $this->files = $record->userInformation->proof_path;
+
                                 $this->student_modal = true;
                                 break;
                             case 'alumni':
-                                    # code...
+                                $this->name = $record->userInformation->name;
+                                $this->course = $record->userInformation->course;
+                                $this->year_graduated = $record->userInformation->year_of_graduated;
+                                $this->gsuite = $record->userInformation->gsuite;
+                                $this->address = $record->userInformation->address;
+                                $this->contact = $record->userInformation->contact;
+                                $this->email = $record->email;
+                                $this->files = $record->userInformation->proof_path;
+
+                                $this->alumni_modal = true;
                             break;
 
                             default:

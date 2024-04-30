@@ -1,4 +1,4 @@
-<div>
+<div class="mb-40">
     <div class="border-2 p-10 rounded-2xl">
         <h1 class="font-bold text-2xl text-main">USER INFORMATION</h1>
 
@@ -7,8 +7,10 @@
             <span>({{ auth()->user()->user_type }})</span>
         </div>
         <div class="mt-5 border-t pt-5 grid grid-cols-4 gap-5">
-            <x-input label="{{ auth()->user()->user_type == 'student' ? 'Student No.' : 'Alumni No.' }}"
-                wire:model="number" />
+
+            @if (auth()->user()->user_type == 'student')
+                <x-input label="Student No." wire:model="number" />
+            @endif
             <x-input label="Fullname" wire:model="name" />
             <x-input label="Age" wire:model="age" />
             <x-datetime-picker without-timezone without-time label="Birthdate" wire:model="birthdate" />

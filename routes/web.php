@@ -46,6 +46,15 @@ Route::prefix('admin')->group(
         Route::get('/work-environment', function () {
             return view('admin.environment');
         })->name('admin.environment');
+        Route::get('/student', function () {
+            return view('admin.student');
+        })->name('admin.student');
+        Route::get('/alumni', function () {
+            return view('admin.alumni');
+        })->name('admin.alumni');
+        Route::get('/employer', function () {
+            return view('admin.employer');
+        })->name('admin.employer');
     }
 );
 
@@ -66,6 +75,13 @@ Route::middleware(UserStatus::class)->group(
         Route::get('/job/{id}', function () {
             return view('pages.job-description');
         })->name('user.job-description');
+
+        Route::get('/user-application', function () {
+            return view('pages.application');
+        })->name('user.application');
+        Route::get('/user-application/{id}', function () {
+            return view('pages.application-open');
+        })->name('user.application-open');
     }
 );
 
@@ -74,6 +90,15 @@ Route::prefix('employer')->middleware(UserStatus::class)->group(
        Route::get('/profile', function(){
         return view('employer.index');
        })->name('employer.dashboard');
+       Route::get('/application', function(){
+        return view('employer.application');
+       })->name('employer.application');
+       Route::get('/application/{id}', function(){
+        return view('employer.application-description');
+       })->name('employer.application-description');
+       Route::get('/hired', function(){
+        return view('employer.hired');
+       })->name('employer.hired');
     }
 );
 

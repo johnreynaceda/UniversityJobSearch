@@ -14,4 +14,21 @@ class UserDropdown extends Component
             'notifs' => Notification::where('receiver_id', auth()->user()->id)->where('is_seen', false)->get(),
         ]);
     }
+
+    public function openNotif($id){
+        $data = Notification::where('id', $id)->first();
+        $data->update([
+            'is_seen' => true,
+        ]);
+        if (auth()->user()->user_type == 'employer') {
+           return redirect()->route('employer.application-description', ['id' => $data->application_id]);
+        }elseif(auth()->user()->user_type == 'admin'){
+            return redirect()->route('admin.request');
+        }
+        else{
+            return redirect()->route('user.application-open', ['id' => $data->application_id]);
+        }
+
+
+    }
 }
