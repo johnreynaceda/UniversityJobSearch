@@ -55,6 +55,9 @@ Route::prefix('admin')->group(
         Route::get('/employer', function () {
             return view('admin.employer');
         })->name('admin.employer');
+        Route::get('/report', function () {
+            return view('admin.report');
+        })->name('admin.report');
     }
 );
 

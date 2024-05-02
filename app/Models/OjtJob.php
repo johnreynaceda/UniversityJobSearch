@@ -17,4 +17,8 @@ class OjtJob extends Model
     public function applications(){
         return $this->hasMany(Application::class);
     }
+
+    public function workEnvironment(){
+        return $this->belongsTo(WorkEnvironment::class);
+    }
 }

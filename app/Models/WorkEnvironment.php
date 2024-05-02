@@ -9,4 +9,8 @@ class WorkEnvironment extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function ojtJobs(){
+        return $this->hasMany(OjtJob::class);
+    }
 }
