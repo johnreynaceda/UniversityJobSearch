@@ -57,8 +57,8 @@
                             </p>
                             <ul>
                                 <li>
-                                    <a class="inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-100 hover:scale-95 hover:text-main"
-                                        href="#_">
+                                    <a class="{{ request()->routeIs('admin.dashboard') ? 'bg-main text-white' : '' }} inline-flex items-center w-full px-4 py-2 mt-1 text-sm text-gray-500 transition duration-200 ease-in-out transform rounded-lg focus:shadow-outline hover:bg-gray-100 hover:scale-95 hover:text-main"
+                                        href="{{ route('admin.dashboard') }}">
                                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
