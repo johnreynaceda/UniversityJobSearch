@@ -23,7 +23,7 @@
                             </svg>
                             <div class="space-y-5">
                                 <h3 class="text-4xl font-medium leading-6 text-gray-700">
-                                    I'm a student
+                                    I'm a Student
                                 </h3>
 
                                 <div class="mt-4">
