@@ -11,7 +11,7 @@
 
 
                     <th class="border  text-left px-2 text-sm font-semibold text-gray-700 py-2">
-                        ALUMNI NAME
+                        EMPLOYER NAME
                     </th>
                     <th class="border  text-left px-2 text-sm font-semibold text-gray-700 py-2">
                         DATE REGISTERED

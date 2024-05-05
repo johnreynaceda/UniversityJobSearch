@@ -43,9 +43,9 @@
 
         <button @click="dropdownOpen=true"
             class="inline-flex items-center justify-center h-12 py-2 pl-3 pr-12 text-sm font-medium transition-colors bg-white border rounded-md text-neutral-700 hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none disabled:opacity-50 disabled:pointer-events-none">
-            <img src="https://cdn.devdojo.com/images/may2023/adam.jpeg"
-                class="object-cover w-8 h-8 border rounded-full border-neutral-200" />
-            <span class="flex flex-col items-start flex-shrink-0 h-full ml-2 leading-none translate-y-px">
+
+            <span
+                class="flex flex-col font-bold uppercase items-start flex-shrink-0 h-full ml-2 leading-none translate-y-px">
                 <span>{{ auth()->user()->name }}</span>
                 <span class="text-xs font-light text-neutral-400">{{ auth()->user()->user_type }}</span>
             </span>
@@ -70,8 +70,7 @@
                         <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
-                    <span>Profile</span>
-                    <span class="ml-auto text-xs tracking-widest opacity-60">⇧⌘P</span>
+                    <span>Settings</span>
                 </a>
                 <div class="h-px my-1 -mx-1 bg-neutral-200"></div>
                 <form method="POST" action="{{ route('logout') }}">
@@ -88,7 +87,6 @@
                             <line x1="21" x2="9" y1="12" y2="12"></line>
                         </svg>
                         <span>Log out</span>
-                        <span class="ml-auto text-xs tracking-widest opacity-60">⇧⌘Q</span>
                     </a>
                 </form>
             </div>

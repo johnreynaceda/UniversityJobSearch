@@ -4,7 +4,7 @@
 
         <div class="mt-5">
             <h1 class="uppercase text-lg font-bold">{{ auth()->user()->name }}</h1>
-            <span>({{ auth()->user()->user_type }})</span>
+            <span>({{ ucfirst(auth()->user()->user_type) }})</span>
         </div>
         <div class="mt-5 border-t pt-5 grid grid-cols-4 gap-5">
 
