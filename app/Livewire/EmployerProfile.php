@@ -46,7 +46,7 @@ class EmployerProfile extends Component implements HasForms, HasTable
                     CreateAction::make('create')->label('POST A JOB')->icon('heroicon-o-document-text')->color('danger')->action(
                         function($data){
                             OjtJob::create([
-                                'employer_information_id' => auth()->user()->id,
+                                'employer_information_id' => auth()->user()->employerInformation->id,
                                 'work_environment_id' => $data['work'],
                                 'filter_for' => $data['for'],
                                 'title' => $data['title'],

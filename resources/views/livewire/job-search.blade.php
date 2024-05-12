@@ -66,7 +66,7 @@
                     <ul class="space-y-3">
                         @forelse ($results as $item)
                             <div class="px-5 py-5 rounded-xl bg-white shadow-xl">
-                                <h1 class="font-bold text-gray-700">{{ $item->title }}</h1>
+                                <h1 class="font-bold uppercase text-gray-700">{{ $item->title }}</h1>
                                 <h1 class="text-sm text-main  italic">{{ $item->employerInformation->company_name }} -
                                     posted on
                                     {{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</h1>

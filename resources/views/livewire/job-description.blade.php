@@ -17,7 +17,8 @@
             </div>
         </div>
         <div class="mt-5 flex space-x-3 items-center justify-center">
-            <x-button label="Return to search" slate flat class="font-semibold" rounded icon="backspace" />
+            <x-button label="Return to search" href="{{ route('welcome') }}" slate flat class="font-semibold" rounded
+                icon="backspace" />
             <x-button label="APPLY NOW" negative class="font-semibold" wire:click="applyNow" spinner="applyNow" rounded
                 right-icon="document-text" />
         </div>

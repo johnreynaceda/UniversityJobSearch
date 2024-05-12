@@ -37,6 +37,7 @@ class JobSearch extends Component
 
     public function search(){
         $this->results = OjtJob::where('title', 'like', '%'. $this->search_input.'%')->where('filter_for', auth()->user()->user_type)->get();
+
         $this->display_result = true;
     }
     public function render()

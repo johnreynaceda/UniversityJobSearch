@@ -37,12 +37,12 @@ class UserApplication extends Component implements HasForms, HasTable
 
             ])
             ->filters([
-               SelectFilter::make('user.user_type')->options([
-                'student' => 'Student',
-                 'employer' => 'Employer',
-                 'alumni' => 'Alumni',
-               ]
-               )
+            //    SelectFilter::make('user.user_type')->options([
+            //     'student' => 'Student',
+            //      'employer' => 'Employer',
+            //      'alumni' => 'Alumni',
+            //    ]
+            //    )
             ])
             ->actions([
                 Action::make('view')->label('OPEN APPLICATION')->color('success')->icon('heroicon-m-arrow-uturn-right')->action(
